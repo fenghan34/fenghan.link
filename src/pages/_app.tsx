@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import 'tailwindcss/tailwind.css'
+import 'windi.css'
 import Layout from '../components/Layout'
 
 function MyApp({ Component, pageProps }: AppProps) {

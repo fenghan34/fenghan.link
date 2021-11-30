@@ -6,7 +6,7 @@ const ToggleTheme = () => {
 
   return (
     <Icon
-      className='text-[1.2rem] cursor-pointer'
+      className='text-xl align-text-bottom'
       onClick={toggle}
       icon={theme === 'dark' ? 'uil:moon' : 'uil:sun'}
     />

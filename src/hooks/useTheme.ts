@@ -1,48 +1,51 @@
 import { useCallback, useEffect, useState } from 'react'
 import { clientSideCallback } from '../utils'
 
-export type ThemeType = 'dark' | 'white'
+export type ThemeType = 'dark' | 'normal'
 
 const useTheme = () => {
-  const [theme, setTheme] = useState<ThemeType>(
-    () => clientSideCallback(init) || 'white'
-  )
+  const [theme, setTheme] = useState<ThemeType>(() => init() || 'normal')
 
   const toggleTheme = useCallback(() => {
-    setTheme(theme === 'dark' ? 'white' : 'dark')
+    setTheme(theme === 'dark' ? 'normal' : 'dark')
   }, [theme])
 
   useEffect(() => {
-    clientSideCallback(() => toggle(theme))
+    toggle(theme)
   }, [theme])
 
   return { theme, toggle: toggleTheme }
 }
 
-const init = () => {
-  const storedTheme = localStorage.getItem('theme')
-  let theme: ThemeType = 'white'
+const init = () =>
+  clientSideCallback(() => {
+    let theme: ThemeType = 'normal'
 
-  if (
-    storedTheme === 'dark' ||
-    (storedTheme !== 'white' &&
-      storedTheme !== 'dark' &&
-      window.matchMedia('(prefers-color-scheme: dark)')?.matches)
-  ) {
-    theme = 'dark'
-  }
+    const storedTheme = localStorage.getItem('theme')
 
-  return theme
-}
+    if (
+      storedTheme === 'dark' ||
+      (storedTheme !== 'normal' &&
+        storedTheme !== 'dark' &&
+        window.matchMedia('(prefers-color-scheme: dark)')?.matches)
+    ) {
+      theme = 'dark'
+    }
 
-const toggle = (theme: ThemeType) => {
-  if (theme === 'dark') {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-  }
+    return theme
+  })
 
-  localStorage.setItem('theme', theme)
-}
+const toggle = (theme: ThemeType) =>
+  clientSideCallback(() => {
+    const htmlElement = document.documentElement
+
+    if (theme === 'dark') {
+      htmlElement.classList.add('dark')
+    } else {
+      htmlElement.classList.remove('dark')
+    }
+
+    localStorage.setItem('theme', theme)
+  })
 
 export default useTheme

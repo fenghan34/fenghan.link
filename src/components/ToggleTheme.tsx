@@ -6,7 +6,7 @@ const ToggleTheme = () => {
 
   return (
     <Icon
-      className='text-xl align-text-bottom'
+      className='icon'
       onClick={toggle}
       icon={theme === 'dark' ? 'uil:moon' : 'uil:sun'}
     />

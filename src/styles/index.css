@@ -1,0 +1,44 @@
+:root {
+  --bg-color: #fff;
+  --scrollbar-color: #eee;
+  --scrollbar-color-hover: #bbb;
+}
+
+html {
+  background-color: var(--bg-color);
+  overflow: scroll;
+  @apply text-gray-700;
+}
+
+html.dark {
+  --bg-color: #050505;
+  --scrollbar-color: #111;
+  --scrollbar-color-hover: #222;
+  @apply text-gray-200;
+}
+
+* {
+  scrollbar-color: var(--scrollbar-color) var(--bg-color);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-color-hover);
+}
+
+.icon {
+  @apply text-2xl align-text-bottom;
+}

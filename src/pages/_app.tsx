@@ -1,3 +1,4 @@
+import '@/styles/index.css'
 import type { AppProps } from 'next/app'
 import 'windi.css'
 import Layout from '../components/Layout'

@@ -25,8 +25,7 @@ const init = () =>
 
     if (
       storedTheme === 'dark' ||
-      (storedTheme !== 'normal' &&
-        storedTheme !== 'dark' &&
+      (!storedTheme &&
         window.matchMedia('(prefers-color-scheme: dark)')?.matches)
     ) {
       theme = 'dark'

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import logo from 'public/favicon-32x32.png'
+import logo from 'public/favicon.ico'
 import Nav from './Nav'
 
 const Header = () => {

@@ -1,12 +1,13 @@
+import BlogList from '@/components/BlogList'
 import { getAllPosts } from '@/utils/api'
 import { GetStaticProps } from 'next'
 
-const BlogListPage = () => {
-  return <div>blog</div>
+const BlogListPage = ({ posts }: { posts: Post[] }) => {
+  return <BlogList posts={posts} />
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getAllPosts(['title', 'date', 'lang'])
+  const posts = getAllPosts().map(({ content, ...rest }) => rest)
 
   return { props: { posts } }
 }

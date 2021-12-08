@@ -1,19 +1,19 @@
 :root {
   --bg-color: #fff;
-  --scrollbar-color: #eee;
+  --scrollbar-color: #ddd;
   --scrollbar-color-hover: #bbb;
 }
 
 html {
   background-color: var(--bg-color);
   overflow: scroll;
-  @apply text-gray-700;
+  @apply text-gray-800;
 }
 
 html.dark {
   --bg-color: #050505;
-  --scrollbar-color: #111;
-  --scrollbar-color-hover: #222;
+  --scrollbar-color: #444;
+  --scrollbar-color-hover: #666;
   @apply text-gray-200;
 }
 

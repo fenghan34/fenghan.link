@@ -3,3 +3,15 @@ export const clientSideCallback = <T>(callback: () => T) => {
     return callback()
   }
 }
+
+export function formatPostDate(date: string, lang?: string) {
+  if (typeof Date.prototype.toLocaleDateString !== 'function') {
+    return date
+  }
+
+  return new Date(date).toLocaleDateString(lang, {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+}

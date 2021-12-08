@@ -11,7 +11,7 @@ html {
 }
 
 html.dark {
-  --bg-color: #050505;
+  --bg-color: #0b1013;
   --scrollbar-color: #444;
   --scrollbar-color-hover: #666;
   @apply text-gray-200;
@@ -41,4 +41,22 @@ html.dark {
 
 .icon {
   @apply text-2xl align-text-bottom;
+}
+
+.nav {
+  a,
+  span {
+    @apply cursor-pointer transition transition-opacity duration-200 opacity-70 hover:opacity-100;
+  }
+}
+
+.blog-list {
+  @apply space-y-16;
+  h3 {
+    font-size: 1.75rem;
+    @apply mb-4 font-bold transition transition-opacity duration-300 opacity-80 hover:opacity-100;
+  }
+  p {
+    @apply mt-1;
+  }
 }

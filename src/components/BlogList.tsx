@@ -2,11 +2,11 @@ import Link from 'next/link'
 
 const BlogList = ({ posts }: { posts: Post[] }) => {
   return (
-    <div className='space-y-16'>
+    <div className='blog-list'>
       {posts.map(({ title, slug, date, duration, spoiler }) => (
         <article key={slug}>
           <header>
-            <h3 className='mb-4 text-2xl font-bold'>
+            <h3>
               <Link href={`/blog/${slug}`} passHref>
                 <a>{title}</a>
               </Link>
@@ -16,7 +16,7 @@ const BlogList = ({ posts }: { posts: Post[] }) => {
               {duration}
             </small>
           </header>
-          <p className='mt-1'>{spoiler}</p>
+          <p>{spoiler}</p>
         </article>
       ))}
     </div>

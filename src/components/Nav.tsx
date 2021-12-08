@@ -1,4 +1,3 @@
-import styles from '@/styles/nav.module.css'
 import { Icon } from '@iconify/react'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
@@ -23,7 +22,7 @@ const Nav = () => {
   const router = useRouter()
 
   return (
-    <nav className={`${styles.nav} flex items-center space-x-4`}>
+    <nav className='nav flex items-center space-x-4'>
       {list.map(({ href, children }, index) => (
         <Link key={index} href={href} passHref>
           <a className={router.asPath === href ? '!opacity-100' : undefined}>

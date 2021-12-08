@@ -5,11 +5,9 @@ date: 2021-10-29 12:00:00 +0000
 duration: 5min
 ---
 
-## Challenge
-
 _Given a number (always positive) as a type. Your type should return the number decreased by one._
 
-You can check it [here](https://github.com/fenghan34/type-challenges/blob/master/questions/2257-medium-minusone/README.md).
+You can check this challenge [here](https://github.com/fenghan34/type-challenges/blob/master/questions/2257-medium-minusone/README.md).
 
 ```ts
 type Zero = MinusOne<1> // 0

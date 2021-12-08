@@ -9,10 +9,10 @@ const Blog = ({ post }: { post: Post }) => {
     <article className='prose'>
       <header>
         <h1>{title}</h1>
-        <small>
+        <p>
           {date}
           {duration}
-        </small>
+        </p>
       </header>
       <div dangerouslySetInnerHTML={{ __html: content }}></div>
     </article>

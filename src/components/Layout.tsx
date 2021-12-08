@@ -9,7 +9,7 @@ const Layout = ({ children }: Props) => {
   return (
     <div className='max-w-screen-[65ch] mx-auto px-6 py-10'>
       <Header />
-      <main className='pt-10'>{children}</main>
+      <main className='pt-14'>{children}</main>
       <Footer />
     </div>
   )

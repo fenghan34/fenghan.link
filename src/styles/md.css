@@ -1,4 +1,4 @@
-@import './prism.css';
+@import './a11y-dark.css';
 
 .prose {
   --c-base: #222;
@@ -15,7 +15,7 @@
     }
 
     p {
-      @apply mb-14;
+      @apply mb-10;
     }
   }
 
@@ -24,6 +24,8 @@
   h4,
   h5,
   h6 {
+    @apply !text-[var(--c-deep)];
+
     &:hover {
       a.header-anchor {
         @apply opacity-100;
@@ -35,12 +37,20 @@
     @apply mx-0;
   }
 
+  pre {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
+    line-height: 1.5 !important;
+    margin-left: -1.2em;
+    margin-right: -1.2em;
+    padding: 1.2em 1.2em !important;
+  }
+
   code:not([class^='language-']) {
     &::before,
     &::after {
       content: none;
     }
-    @apply font-bold text-sm p-1 rounded bg-[var(--bg-inline-code)];
+    @apply font-semibold text-sm p-1 rounded-lg bg-[var(--bg-inline-code)];
   }
 
   a {
@@ -66,12 +76,17 @@
   hr {
     @apply h-1px bg-[var(--bg-hr)];
   }
+
+  ul > li::before {
+    @apply !bg-[var(--c-base)];
+  }
 }
 
 html.dark .prose {
-  --c-base: #ffffffe0;
-  --c-deep: #eee;
+  --c-base: #dddddde0;
+  --c-deep: #dbdbdb;
   --c-deeper: #fff;
   --c-anchor: #33a6b8;
+  --bg-inline-code: #a5dee433;
   --bg-hr: rgba(255, 255, 255, 0.2);
 }

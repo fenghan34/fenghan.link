@@ -18,8 +18,6 @@ type FiftyFour = MinusOne<55> // 54
 
 There is no doubt that the only way we can get a number type from TypeScript types is obtaining the length of tuple types. Thus, basically, we need to construct a tuple whose length is the number which equals the type param minusd one, and return its length as result in `MinusOne<T>`.
 
----
-
 But we can only construct a tuple whose length equals the type param since we couldn't add subtraction to type system. so we use `infer` operator to get the tuple we want and return its length as final result.
 
 How to construct a specific length tuple? It is recursion, simply as flowing:
@@ -41,67 +39,67 @@ Let's review the challenge description. As it said, the number we pass to `Minus
 
 - Transform the number to string so that we could iterate through each digit.
 
-  ```ts
-  type MinusOne<T extends number> = `${T}`
-  ```
+```ts
+type MinusOne<T extends number> = `${T}`
+```
 
 - Iterate through each character in `TupleGenerator`.
 
-  ```ts
-  type TupleGenerator<T extends string> =
-    T extends `${infer FirstDigit}${infer Rest}`
-      ? FirstDigit extends ''
-        ? T
-        : TupleGenerator<Rest>
-      : T
+```ts
+type TupleGenerator<T extends string> =
+  T extends `${infer FirstDigit}${infer Rest}`
+    ? FirstDigit extends ''
+      ? T
+      : TupleGenerator<Rest>
+    : T
 
-  type MinusOne<T extends number> = TupleGenerator<`${T}`>
-  ```
+type MinusOne<T extends number> = TupleGenerator<`${T}`>
+```
 
 - Construct a tuple recursively in `TupleGenerator`. In each loop, return a tuple whose length equals the sum of `A` and `B`.
   `A` is the corresponding number of current string `T`.
   `B` is the number which resulted by the length of last returned tuple multiplied with `10`.
 
-  ```ts
-  type BaseDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  type BaseDigitsStrUnion = `${BaseDigits[number]}`
+```ts
+type BaseDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+type BaseDigitsStrUnion = `${BaseDigits[number]}`
 
-  type ExpandTupleBy10x<T extends any[]> = [
-    ...T,
-    ...T,
-    ...T,
-    ...T,
-    ...T,
-    ...T,
-    ...T,
-    ...T,
-    ...T,
-    ...T
-  ]
+type ExpandTupleBy10x<T extends any[]> = [
+  ...T,
+  ...T,
+  ...T,
+  ...T,
+  ...T,
+  ...T,
+  ...T,
+  ...T,
+  ...T,
+  ...T
+]
 
-  type TupleGenerator<
-    T extends string,
-    U extends any[] = []
-  > = T extends `${infer FirstDigit}${infer Rest}`
-    ? FirstDigit extends BaseDigitsStrUnion
-      ? TupleGenerator<
-          Rest,
-          [...ExpandTupleBy10x<U>, ...TupleGeneratorHelper<FirstDigit>]
-        >
-      : U
+type TupleGenerator<
+  T extends string,
+  U extends any[] = []
+> = T extends `${infer FirstDigit}${infer Rest}`
+  ? FirstDigit extends BaseDigitsStrUnion
+    ? TupleGenerator<
+        Rest,
+        [...ExpandTupleBy10x<U>, ...TupleGeneratorHelper<FirstDigit>]
+      >
     : U
-  ```
+  : U
+```
 
 - Simply infer the tuple we want and return its length as final result.
 
-  ```ts
-  type MinusOne<T extends number> = TupleGenerator<`${T}`> extends [
-    _: unknown,
-    ...rest: infer Rest
-  ]
-    ? Rest['length']
-    : 0
-  ```
+```ts
+type MinusOne<T extends number> = TupleGenerator<`${T}`> extends [
+  _: unknown,
+  ...rest: infer Rest
+]
+  ? Rest['length']
+  : 0
+```
 
 **All the solution code for this challenge as following:**
 

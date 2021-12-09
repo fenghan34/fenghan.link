@@ -18,7 +18,7 @@ export default defineConfig({
             color: 'var(--c-base)',
             strong: { color: 'var(--c-deep)' },
             blockquote: { color: 'inherit' },
-            code: { color: 'var(--c-deep)' },
+            code: { color: 'inherit' },
             ul: { 'padding-left': '0' },
             a: {
               'color': 'var(--c-anchor)',

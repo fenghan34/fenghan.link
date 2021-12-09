@@ -5,7 +5,7 @@ date: 2021-10-29 12:00:00 +0000
 duration: 5min
 ---
 
-_Given a number (always positive) as a type. Your type should return the number decreased by one._
+> _Given a number (always positive) as a type. Your type should return the number decreased by one._
 
 You can check this challenge [here](https://github.com/fenghan34/type-challenges/blob/master/questions/2257-medium-minusone/README.md).
 
@@ -17,6 +17,8 @@ type FiftyFour = MinusOne<55> // 54
 ## Solution
 
 There is no doubt that the only way we can get a number type from TypeScript types is obtaining the length of tuple types. Thus, basically, we need to construct a tuple whose length is the number which equals the type param minusd one, and return its length as result in `MinusOne<T>`.
+
+---
 
 But we can only construct a tuple whose length equals the type param since we couldn't add subtraction to type system. so we use `infer` operator to get the tuple we want and return its length as final result.
 

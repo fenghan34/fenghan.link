@@ -4,7 +4,7 @@ export const clientSideCallback = <T>(callback: () => T) => {
   }
 }
 
-export function formatPostDate(date: string, lang?: string) {
+export const formatPostDate = (date: string, lang?: string) => {
   if (typeof Date.prototype.toLocaleDateString !== 'function') {
     return date
   }

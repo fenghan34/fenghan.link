@@ -25,7 +25,11 @@ const Nav = () => {
     <nav className='nav flex items-center space-x-4'>
       {list.map(({ href, children }, index) => (
         <Link key={index} href={href} passHref>
-          <a className={router.asPath === href ? '!opacity-100' : undefined}>
+          <a
+            className={
+              router.asPath.includes(href) ? '!opacity-100' : undefined
+            }
+          >
             {children}
           </a>
         </Link>

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import logo from 'public/favicon.ico'
+import logo from 'public/logo.png'
 import Nav from './Nav'
 
 const Header = () => {
@@ -12,8 +12,8 @@ const Header = () => {
             className='cursor-pointer'
             src={logo}
             alt='logo'
-            layout='fixed'
-            priority
+            width={35}
+            height={35}
           />
         </a>
       </Link>

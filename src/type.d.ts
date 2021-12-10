@@ -6,3 +6,9 @@ declare interface Post {
   duration: string
   slug: string
 }
+
+declare interface Note {
+  date: string
+  title: string
+  content: string
+}

@@ -13,10 +13,6 @@
     h1 {
       @apply text-[2.5rem] text-[var(--c-deeper)] mb-4;
     }
-
-    p {
-      @apply mb-10;
-    }
   }
 
   h2,

@@ -1,8 +1,8 @@
 import { getPostBySlug, getPostSlugs } from '@/utils/api'
 import { md2html } from '@/utils/md2html'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 
-const Blog = ({ post }: { post: Post }) => {
+const Blog = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title, date, duration, content } = post
 
   return (

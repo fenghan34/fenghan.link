@@ -1,8 +1,8 @@
 import { getNotes } from '@/utils/api'
 import { md2html } from '@/utils/md2html'
-import { GetStaticProps } from 'next'
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
-const Notes = ({ notes }: { notes: Note[] }) => {
+const Notes = ({ notes }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className='space-y-16 prose'>
       {notes.map(({ date, title, content }) => (
@@ -27,7 +27,7 @@ const Notes = ({ notes }: { notes: Note[] }) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<{ notes: Note[] }> = async () => {
   const notes = getNotes().map(({ content, ...rest }) => ({
     content: md2html(content),
     ...rest,

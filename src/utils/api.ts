@@ -27,25 +27,35 @@ export const getPostBySlug = (slug: string) => {
 }
 
 export const getAllPosts = () => {
-  const slugs = getPostSlugs()
+  try {
+    const slugs = getPostSlugs()
 
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-  return posts
+    const posts = slugs
+      .map((slug) => getPostBySlug(slug))
+      .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+
+    return posts
+  } catch {
+    return []
+  }
 }
 
 export const getNotes = () => {
-  const notes = fs
-    .readdirSync(notesDirectory)
-    .map((slug) => {
-      const {
-        data: { date, ...rest },
-        content,
-      } = matter(fs.readFileSync(join(notesDirectory, slug), 'utf8'))
-      return { date: formatPostDate(date, 'en'), ...rest, content } as Note
-    })
-    .sort((note1, note2) => (note1.date > note2.date ? -1 : 1))
+  try {
+    const noteSlugs = fs.readdirSync(notesDirectory)
 
-  return notes
+    const notes = noteSlugs
+      .map((slug) => {
+        const {
+          data: { date, ...rest },
+          content,
+        } = matter(fs.readFileSync(join(notesDirectory, slug), 'utf8'))
+        return { date: formatPostDate(date, 'en'), ...rest, content } as Note
+      })
+      .sort((note1, note2) => (note1.date > note2.date ? -1 : 1))
+
+    return notes
+  } catch {
+    return []
+  }
 }

@@ -1,3 +1,5 @@
+///<reference types="next-images" />
+
 declare interface Post {
   title: string
   spoiler: string

@@ -1,5 +1,5 @@
 const Custom404 = () => {
-  return <p className='prose pt-6'>sorry, I can&apos;t find what you want.</p>
+  return <p className='prose prose-lg'>So glad to see you.</p>
 }
 
 export default Custom404

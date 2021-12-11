@@ -5,10 +5,6 @@ import ToggleTheme from './ToggleTheme'
 
 const list = [
   {
-    href: '/about',
-    children: 'About',
-  },
-  {
     href: '/blog',
     children: 'Blog',
   },

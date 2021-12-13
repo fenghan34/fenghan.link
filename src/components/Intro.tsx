@@ -3,7 +3,9 @@ import { Icon } from '@iconify/react'
 const Intro = () => {
   return (
     <div className='prose prose-lg'>
-      <p className='text-2xl font-semibold'>Hi, I&#39;m Feng Han. </p>
+      <h2>
+        <span className='font-normal'>👋</span> Hi, I&#39;m Feng Han.
+      </h2>
       <p>
         I am a junior front-end developer from
         <OuterLink
@@ -28,9 +30,9 @@ const Intro = () => {
         keep going on, therefore I made this website.
       </p>
       <p>
-        Thanks for coming. You can{' '}
-        <a href='mailto:fenghan770@gmail.com'>email</a> me with no hesitation if
-        you have any issues.
+        Thanks for coming. You can
+        <OuterLink text='email' href='mailto:fenghan770@gmail.com' />
+        me with no hesitation if you have any issues.
       </p>
     </div>
   )

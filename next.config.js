@@ -1,8 +1,7 @@
 const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
-const withImages = require('next-images')
 
 /** @type {import('next').NextConfig} */
-module.exports = withImages({
+module.exports = {
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -12,4 +11,4 @@ module.exports = withImages({
 
     return config
   },
-})
+}

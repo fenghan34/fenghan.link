@@ -4,7 +4,7 @@
   --c-base: #222;
   --c-deep: #111;
   --c-deeper: #000;
-  --c-anchor: #0089a7;
+  --c-anchor: var(--primary-color);
   --bg-hr: rgba(0, 0, 0, 0.2);
   --bg-inline-code: #a5dee433;
   --p-gap: 1.75rem;
@@ -82,7 +82,6 @@ html.dark .prose {
   --c-base: #dddddde0;
   --c-deep: #dbdbdb;
   --c-deeper: #fff;
-  --c-anchor: #33a6b8;
   --bg-inline-code: #a5dee433;
   --bg-hr: rgba(255, 255, 255, 0.2);
 }

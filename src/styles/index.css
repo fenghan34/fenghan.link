@@ -1,7 +1,9 @@
 :root {
+  --primary-color: #0089a7;
   --bg-color: #fff;
   --scrollbar-color: #ddd;
   --scrollbar-color-hover: #bbb;
+  --logo-brightness: 0;
 }
 
 html {
@@ -11,9 +13,11 @@ html {
 }
 
 html.dark {
+  --primary-color: #33a6b8;
   --bg-color: #080808;
   --scrollbar-color: #444;
   --scrollbar-color-hover: #666;
+  --logo-brightness: 5;
   @apply text-gray-200;
 }
 
@@ -46,17 +50,23 @@ html.dark {
 .nav {
   a,
   span {
-    @apply cursor-pointer transition transition-opacity duration-200 opacity-70 hover:opacity-100;
+    @apply cursor-pointer outline-none transition transition-opacity duration-200 opacity-70 hover:opacity-100;
   }
 }
 
 .blog-list {
   @apply space-y-16;
+
   h3 {
     font-size: 1.75rem;
-    @apply mb-4 font-bold transition transition-opacity duration-300 opacity-80 hover:opacity-100;
+    @apply text-[var(--primary-color)] mb-3 font-bold;
   }
+
   p {
     @apply mt-1;
   }
+}
+
+.logo {
+  @apply outline-none filter brightness-[var(--logo-brightness)];
 }

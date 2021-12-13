@@ -1,12 +1,15 @@
-import avatar from 'public/avatar.svg'
+import Image from 'next/image'
+import logo from 'public/logo.png'
 
 const Avatar = () => {
   return (
-    <img
-      className='transform -translate-x-[15px]'
-      src={avatar}
-      alt='Avatar'
-      width={80}
+    <Image
+      className='logo'
+      alt='Logo'
+      src={logo}
+      layout='intrinsic'
+      width={40}
+      height={40}
     />
   )
 }

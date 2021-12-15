@@ -31,7 +31,11 @@ const Intro = () => {
       </p>
       <p>
         Thanks for coming. You can
-        <OuterLink text='email' href='mailto:fenghan770@gmail.com' />
+        <OuterLink
+          text='email'
+          href='mailto:hi@fenghan.link'
+          title='hi@fenghan.link'
+        />
         me with no hesitation if you have any issues.
       </p>
     </div>
@@ -42,15 +46,17 @@ type LinkProps = {
   href: string
   icon?: string
   text: string
+  [key: string]: any
 }
 
-const OuterLink = ({ text, href, icon }: LinkProps) => {
+const OuterLink = ({ text, href, icon, ...rest }: LinkProps) => {
   return (
     <a
       className='!border-none mx-1'
       href={href}
       target='_blank'
       rel='noreferrer'
+      {...rest}
     >
       {text}
       {icon && <Icon className='icon ml-1' icon={icon} />}

@@ -17,6 +17,20 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
+          <script
+            type='text/javascript'
+            dangerouslySetInnerHTML={{
+              __html: `
+(function () {
+  var theme = localStorage.getItem('theme')
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches || theme === 'dark') {
+    document.documentElement.className = 'dark'
+    localStorage.setItem('theme', 'dark')
+  }
+})()
+              `,
+            }}
+          />
           <Main />
           <NextScript />
         </body>

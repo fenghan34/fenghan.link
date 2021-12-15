@@ -13,7 +13,7 @@ const Notes = ({ notes }: InferGetStaticPropsType<typeof getStaticProps>) => {
         {notes.map(({ date, title, content }) => (
           <article key={date}>
             <header>
-              <h2 id={title} className='!text-2xl !mb-1 !mt-0'>
+              <h2 id={title} className='!text-3xl !mb-1 !mt-0'>
                 {title}
                 <a
                   className='header-anchor !mt-0'

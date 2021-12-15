@@ -2,7 +2,7 @@ import { Icon } from '@iconify/react'
 
 const Intro = () => {
   return (
-    <div className='prose prose-lg'>
+    <div className='prose md:prose-lg'>
       <h2>
         <span className='font-normal'>👋</span> Hi, I&#39;m Feng Han.
       </h2>
